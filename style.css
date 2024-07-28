@@ -1,0 +1,177 @@
+/* Base styles */
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    width: 100%;
+    height: 10%;
+    background-color: rgb(61, 98, 61);
+    display: flex;
+}
+main {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    color: rgb(61, 98, 61);
+}
+.Info a {
+    color: blueviolet;
+}
+.Text3 .Head,
+.Text4 .Head,
+.Text5 .Head,
+.Text6 .Head {
+    text-align: center;
+}
+.heading {
+    text-align: center;
+}
+.Text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Main .image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    padding-left: 0px;
+    width: 100%;
+    object-fit: contain;
+}
+.Text2 {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+footer {
+    width: 100%;
+    height: 12%;
+    background-color: rgb(61, 98, 61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.footerbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+h1 {
+    color: white;
+}
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.logo {
+    position: relative;
+    left: 5%;
+}
+.navMenu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    right: 5%;
+}
+.signUp, .login, .About, .Contact {
+    color: white;
+    margin-left: 15px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.Home:hover a,
+.signUp:hover a,
+.login:hover a,
+.About:hover a,
+.Contact:hover a {
+    cursor: pointer;
+    padding: 3px;
+    background-color: white;
+    color: rgb(71, 97, 71);
+    border-radius: 10px;
+}
+.copyrights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navMenu {
+        flex-direction: column;
+        align-items: flex-start;
+        right: 0;
+    }
+    .Main .image {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navMenu {
+        flex-direction: column;
+        align-items: flex-start;
+        right: 0;
+    }
+    .Text {
+        flex-direction: column;
+    }
+    .Main .image {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navMenu {
+        flex-direction: column;
+        align-items: flex-start;
+        right: 0;
+    }
+    .Text {
+        flex-direction: column;
+    }
+    .Main .image {
+        max-width: 100%;
+    }
+    .footerbar {
+        flex-direction: column;
+    }
+}
