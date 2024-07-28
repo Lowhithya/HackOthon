@@ -23,8 +23,11 @@ main {
     justify-content: center;
     color: rgb(61, 98, 61);
 }
+input{
+    width: 100%;
+}
 .Info a {
-    color: blueviolet;
+    color: rgb(61, 98, 61);
 }
 .Text3 .Head,
 .Text4 .Head,
@@ -83,6 +86,25 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+}
+.Submit{
+    text-align: center;
+}
+.Submit input{
+    width: fit-content;
+    color:white;
+background-color:rgb(61, 98, 61) ;
+border-radius: 10px;
+}
+.lg a{
+    background-color: rgb(61, 98, 61);
+    border-radius: 10px;
+    padding: 5px;
+}
+.su a{
+    background-color: rgb(61, 98, 61);
+    border-radius: 10px;
+    padding: 5px;
 }
 .logo {
     position: relative;
