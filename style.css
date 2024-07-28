@@ -197,3 +197,45 @@ a {
         flex-direction: column;
     }
 }
+.sideBar{
+    width: 250px;
+    height: calc(100vh - 22%);
+    background-color: rgb(61, 98, 61);
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3%;
+}
+.sideBar ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.menu{
+    flex-grow: 1;
+}
+.bottom-menu{
+    margin-top:auto;
+}
+.sideBar ul li{
+    margin: 20px 0;
+}
+.sideBar .bottom-menu a{
+    color: white;
+}
+.sideBar ul li a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.sideBar ul li a:hover{
+    background-color: rgb(88, 136, 88);
+    border-radius: 10px;
+}
