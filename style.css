@@ -198,7 +198,7 @@ a {
     }
 }
 .sideBar{
-    width: 250px;
+    width: 20%;
     height: calc(100vh - 22%);
     background-color: rgb(61, 98, 61);
     padding: 20px;
@@ -239,3 +239,48 @@ a {
     background-color: rgb(88, 136, 88);
     border-radius: 10px;
 }
+#postForm{
+    display: flex;
+    position: absolute;
+    bottom: 15%;
+}
+#messageInput{
+    border:2px solid rgb(88, 136, 88);
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(188, 205, 188);
+}
+#messageInput::placeholder{
+    color: rgb(88, 136, 88);
+}
+button{
+    background-color: rgb(188, 205, 188);;
+    border-radius: 10px;
+    border:2px solid rgb(88, 136, 88);
+    margin-left: 10px;
+    color:rgb(88, 136, 88);
+}
+#imageIcon{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    
+}
+#messagesContainer {
+    max-height: 475px; /* Adjust the height as needed */
+    width: 100vh;
+    overflow-y: auto;
+}
+
+.post-image {
+    width: 100px;
+    cursor: pointer;
+}
+
+.post-image.thumbnail {
+    width: auto;
+    height: auto;
+}
+

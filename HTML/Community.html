@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyCommunity/Community</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="navbar">
             <div class="logo"><h1><a href="../index.html">MyCommunity</a></h1></div>
             <div class="navMenu">
-                <div class="login"><a href="../HTML/login.html">Welcome Name!</a></div>
+                <div class="login">Welcome Name!</div>
             </div>
         </div>
     </header>
@@ -27,13 +28,18 @@
                 <li><a href="../index.html">Log Out</a></li>
             </ul>
         </div>
+       
         <div class="content">
             <div id="messagesContainer"></div>
             <form id="postForm">
                 <textarea id="messageInput" placeholder="Enter your message" required></textarea>
-                <button type="submit">Post</button>
+                <i id="imageIcon" class="fa-regular fa-image"></i>
+                <input type="file" id="imageInput" accept="image/*" style="display:none;">
+                <button type="submit" >Post</button>
             </form>
-        </div>
+        </div>            
+     
+
     </main>
     <footer>
         <div class="Foot">
