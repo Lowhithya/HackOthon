@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
         window.location.href = 'login.html';
     } else {
         // Display welcome message with user name
-        document.getElementById('welcomeMessage').innerText = `Welcome ${user.name}!`;
+         window.location.href = 'DashBoard.html';
 
         // Handle logout
         document.getElementById('logoutButton').addEventListener('click', function() {
