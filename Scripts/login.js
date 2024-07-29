@@ -13,7 +13,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         sessionStorage.setItem('user', JSON.stringify(user));
 
         // Redirect to Dashboard page
-        window.location.href = 'HTML\DashBoard.html';
+        window.location.href = './HTML/DashBoard.html';
     } else {
         alert('Invalid credentials');
     }
