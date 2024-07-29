@@ -4,24 +4,17 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
 
-    // Create AJAX request
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'login.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // Retrieve user data from local storage
+    const user = JSON.parse(localStorage.getItem(phone));
 
-    xhr.onload = function() {
-        if (this.status === 200) {
-            const response = JSON.parse(this.responseText);
-            if (response.success) {
-                // Store session information
-                sessionStorage.setItem('isLoggedIn', 'true');
-                // Redirect to Dashboard page
-                window.location.href = 'DashBoard.html';
-            } else {
-                alert('Invalid credentials');
-            }
-        }
-    };
+    if (user && user.password === password) {
+        // Store session information
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('user', JSON.stringify(user));
 
-    xhr.send(`phone=${phone}&password=${password}`);
+        // Redirect to Dashboard page
+        window.location.href = 'Dashboard.html';
+    } else {
+        alert('Invalid credentials');
+    }
 });
