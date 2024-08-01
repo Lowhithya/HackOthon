@@ -2,22 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyCommunity/DashBoard</title>
-<link rel="stylesheet" href="../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCommunity/DashBoard</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            margin: 0;
+        }
 
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(61, 98, 61);
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .navbar .login h1 {
+            margin: 0;
+        }
+
+        .sidebar {
+            height: calc(100% - 60px); /* Adjust height to account for header */
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 60px; /* Position under the header */
+            left: 0;
+            background-color: rgb(61, 98, 61);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .main-content {
+            margin-left: 250px; /* Same as the width of the sidebar */
+            padding: 16px;
+            transition: margin-left 0.5s;
+            padding-top: 80px; /* Adjust padding to account for header height */
+        }
+
+        #sidebar.hidden {
+            width: 0;
+            padding-top: 0;
+        }
+
+        #main-content.expanded {
+            margin-left: 0;
+        }
+
+        #toggleSidebar {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-article {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .news-article h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="navbar">
             <div class="logo"><h1><a href="../index.html">MyCommunity</a></h1></div>
             <div class="navMenu">
-                <div class="login"><h1  id="welcomeMessage">Welcome!</h1></div>
+                <div class="login"><h1 id="welcomeMessage">Welcome!</h1></div>
             </div>
         </div>
     </header>
     <main>
-        <div class="sideBar">
+        <button id="toggleSidebar">=</button>
+        <div class="sidebar" id="sidebar">
+            <a href="javascript:void(0)" class="closebtn" id="closebtn">&times;</a>
             <ul class="menu">
                 <li><a href="./DashBoard.html">DashBoard</a></li>
                 <li><a href="../HTML/Community.html">Community</a></li>
@@ -28,18 +132,11 @@
                 <li><a href="../index.html" id="logoutButton">Log Out</a></li>
             </ul>
         </div>
-    
-        <div class="content">
-            <div class="post" id="post1">
-                <h2>Post Title</h2>
-                <p>Post content...</p>
-                <div class="post-footer">
-                    <span>Points: <span id="points1">0</span></span>
-                    <span>Likes: <span id="likes1">0</span></span>
-                    <span>Followers: <span id="followers1">0</span></span>
-                </div>
+
+        <div class="main-content" id="main-content">
+            <div class="content" id="newsContent">
+                <!-- News articles will be appended here -->
             </div>
-            <!-- Repeat for other posts -->
         </div>
     </main>
     <footer>
@@ -55,5 +152,23 @@
         </div>
     </footer>
     <script src="../Scripts/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            const toggleSidebarButton = document.getElementById('toggleSidebar');
+            const closebtn = document.getElementById('closebtn');
+
+            toggleSidebarButton.addEventListener('click', function() {
+                sidebar.classList.toggle('hidden');
+                mainContent.classList.toggle('expanded');
+            });
+
+            closebtn.addEventListener('click', function() {
+                sidebar.classList.add('hidden');
+                mainContent.classList.add('expanded');
+            });
+        });
+    </script>
 </body>
 </html>

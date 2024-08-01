@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
         window.location.href = 'login.html';
     } else {
         // Display welcome message with user name
-         window.location.href = 'DashBoard.html';
+        document.getElementById('welcomeMessage').innerText = `Welcome, ${user.name}!`;
 
         // Handle logout
         document.getElementById('logoutButton').addEventListener('click', function() {
@@ -16,55 +16,67 @@ window.addEventListener('load', function() {
     }
 });
 document.addEventListener('DOMContentLoaded', function() {
-    // Example of initializing data
-    const posts = [
-        { id: 1, points: 10, likes: 5, followers: 3 },
-        // Add more posts as needed
-    ];
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
+    const toggleSidebarButton = document.getElementById('toggleSidebar');
+    const closebtn = document.getElementById('closebtn');
+    const newsContent = document.getElementById('newsContent');
 
-    // Function to update the UI with the data
-    function updatePostUI(post) {
-        document.getElementById(`points${post.id}`).innerText = post.points;
-        document.getElementById(`likes${post.id}`).innerText = post.likes;
-        document.getElementById(`followers${post.id}`).innerText = post.followers;
-    }
-
-    // Initialize the posts
-    posts.forEach(post => {
-        updatePostUI(post);
+    toggleSidebarButton.addEventListener('click', function() {
+        sidebar.classList.toggle('hidden');
+        mainContent.classList.toggle('expanded');
     });
 
-    // Example functions to increment values
-    function addPoint(postId) {
-        const post = posts.find(p => p.id === postId);
-        if (post) {
-            post.points++;
-            updatePostUI(post);
-        }
-    }
-
-    function addLike(postId) {
-        const post = posts.find(p => p.id === postId);
-        if (post) {
-            post.likes++;
-            updatePostUI(post);
-        }
-    }
-
-    function addFollower(postId) {
-        const post = posts.find(p => p.id === postId);
-        if (post) {
-            post.followers++;
-            updatePostUI(post);
-        }
-    }
-
-    // Example event listeners (you'll need to add buttons or other triggers for these)
-    document.getElementById('post1').addEventListener('click', function() {
-        addPoint(1);
-        addLike(1);
-        addFollower(1);
+    closebtn.addEventListener('click', function() {
+        sidebar.classList.add('hidden');
+        mainContent.classList.add('expanded');
     });
 
-    // Repeat event listeners setup for other posts if needed
+    async function fetchNews() {
+        const url = 'https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=c2416618146d45e68808a50e61bfb29e';
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            displayNews(data.articles);
+        } catch (error) {
+            console.error('Error fetching news:', error);
+        }
+    }
+
+    function displayNews(articles) {
+        newsContent.innerHTML = '';
+        articles.forEach(article => {
+            const articleElement = document.createElement('div');
+            articleElement.className = 'news-article';
+            articleElement.innerHTML = `
+                <h2>${article.title}</h2>
+                <br>
+                <a href="${article.url}" target="_blank" style="color:rgb(61, 98, 61)">Read more</a>
+            `;
+            newsContent.appendChild(articleElement);
+        });
+    }
+
+    fetchNews(); // Fetch news on page load
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
+    const toggleSidebarButton = document.getElementById('toggleSidebar');
+    const closebtn = document.getElementById('closebtn');
+
+    toggleSidebarButton.addEventListener('click', function() {
+        sidebar.classList.toggle('hidden');
+        mainContent.classList.toggle('expanded');
+    });
+
+    closebtn.addEventListener('click', function() {
+        sidebar.classList.add('hidden');
+        mainContent.classList.add('expanded');
+    });
+})
+
+
