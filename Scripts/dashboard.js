@@ -15,6 +15,24 @@ window.addEventListener('load', function() {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
+    const toggleSidebarButton = document.getElementById('toggleSidebar');
+    const closebtn = document.getElementById('closebtn');
+
+    toggleSidebarButton.addEventListener('click', function() {
+        sidebar.classList.toggle('hidden');
+        mainContent.classList.toggle('expanded');
+    });
+
+    closebtn.addEventListener('click', function() {
+        sidebar.classList.add('hidden');
+        mainContent.classList.add('expanded');
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const mainContent = document.getElementById('main-content');
@@ -52,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const articleElement = document.createElement('div');
             articleElement.className = 'news-article';
             articleElement.innerHTML = `
-                <h2>${article.title}</h2>
+                <h3>${article.title}</h3>
                 <br>
                 <a href="${article.url}" target="_blank" style="color:rgb(61, 98, 61)">Read more</a>
             `;
@@ -62,21 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fetchNews(); // Fetch news on page load
 });
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('sidebar');
-    const mainContent = document.getElementById('main-content');
-    const toggleSidebarButton = document.getElementById('toggleSidebar');
-    const closebtn = document.getElementById('closebtn');
 
-    toggleSidebarButton.addEventListener('click', function() {
-        sidebar.classList.toggle('hidden');
-        mainContent.classList.toggle('expanded');
-    });
 
-    closebtn.addEventListener('click', function() {
-        sidebar.classList.add('hidden');
-        mainContent.classList.add('expanded');
-    });
-})
 
 
