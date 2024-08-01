@@ -16,40 +16,26 @@ window.addEventListener('load', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('sidebar');
-    const mainContent = document.getElementById('main-content');
-    const toggleSidebarButton = document.getElementById('toggleSidebar');
-    const closebtn = document.getElementById('closebtn');
 
-    toggleSidebarButton.addEventListener('click', function() {
-        sidebar.classList.toggle('hidden');
-        mainContent.classList.toggle('expanded');
-    });
-
-    closebtn.addEventListener('click', function() {
-        sidebar.classList.add('hidden');
-        mainContent.classList.add('expanded');
-    });
-});
 
 document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('sidebar');
-    const mainContent = document.getElementById('main-content');
-    const toggleSidebarButton = document.getElementById('toggleSidebar');
-    const closebtn = document.getElementById('closebtn');
-    const newsContent = document.getElementById('newsContent');
+    
 
-    toggleSidebarButton.addEventListener('click', function() {
-        sidebar.classList.toggle('hidden');
-        mainContent.classList.toggle('expanded');
-    });
-
-    closebtn.addEventListener('click', function() {
-        sidebar.classList.add('hidden');
-        mainContent.classList.add('expanded');
-    });
-
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const toggleSidebarButton = document.getElementById('toggleSidebar');
+        const closebtn = document.getElementById('closebtn');
+    
+        toggleSidebarButton.addEventListener('click', function() {
+            sidebar.classList.toggle('hidden');
+            mainContent.classList.toggle('expanded');
+        });
+    
+        closebtn.addEventListener('click', function() {
+            sidebar.classList.add('hidden');
+            mainContent.classList.add('expanded');
+        });
+    
     async function fetchNews() {
         const url = 'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=c2416618146d45e68808a50e61bfb29e';
         try {
