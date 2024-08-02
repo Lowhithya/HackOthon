@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     
     async function fetchNews() {
-        const url = 'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=c2416618146d45e68808a50e61bfb29e';
+        const url = 'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=';
         try {
             const response = await fetch(url);
             if (!response.ok) {
