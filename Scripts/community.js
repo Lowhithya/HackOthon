@@ -1,15 +1,10 @@
-
-
-
-    // Add any other existing JavaScript code here
-
-    document.addEventListener('DOMContentLoaded', function() {
-        
+document.addEventListener('DOMContentLoaded', function() {
+        // Function to close and elapse the sideBar
         const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('main-content');
         const toggleSidebarButton = document.getElementById('toggleSidebar');
         const closebtn = document.getElementById('closebtn');
-    
+
         toggleSidebarButton.addEventListener('click', function() {
             sidebar.classList.toggle('hidden');
             mainContent.classList.toggle('expanded');
@@ -20,6 +15,7 @@
             mainContent.classList.add('expanded');
         });
 
+        // Function to write and display messages in Page
         const messagesContainer = document.getElementById('messagesContainer');
         const postForm = document.getElementById('postForm');
         const messageInput = document.getElementById('messageInput');
@@ -44,21 +40,21 @@
             // Scroll to the bottom of the container
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
-    
+    // Store messages in Local Storage
         function saveMessage(message) {
             const messages = JSON.parse(localStorage.getItem('messages')) || [];
             messages.push(message);
             localStorage.setItem('messages', JSON.stringify(messages));
             displayMessages();
         }
-    
+    //Function to delete the message 
         function deleteMessage(index) {
             let messages = JSON.parse(localStorage.getItem('messages')) || [];
             messages.splice(index, 1);
             localStorage.setItem('messages', JSON.stringify(messages));
             displayMessages();
         }
-    
+    // Function to increase or decrease the image size
         function toggleImageSize(img) {
             if (img.classList.contains('thumbnail')) {
                 img.classList.remove('thumbnail');

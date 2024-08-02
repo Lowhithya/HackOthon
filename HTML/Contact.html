@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MyCommunity/Contact</title>
+    <link rel="stylesheet" href="../Styles/style.css">
 </head>
 <body>
-    
+    <!-- Heading , Navigation Bar-->
+    <header>
+        <div class="navbar">
+            <div class="logo"><h1><a href="../index.html">MyCommunity</a></h1></div>
+            <div class="navMenu">
+                <div class="signUp"><a href="../HTML/signup.html">SignUp</a></div>
+                <div class="login"><a href="../HTML/login.html">Login</a></div>
+            </div>
+        </div>
+    </header>
+    <!-- Main body, interaction, etc -->
+    <main style="display: flex; justify-content:center;align-items: center;flex-direction: column;">
+        <h1>Contact Us</h1>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+        <br><br>
+        <div class="Info" style="display: flex;background-color: rgb(61, 98, 61);color: white;border-radius: 10px;">
+            <ul>
+                <li>Have questions? Reach us at: 
+                    <ul>
+                        <li>Email: <a href="mailto:mycommunity@gmail.com" target="_blank" style="color: white;">mycommunity@gmail.com</a></li>
+                        <li>Call: <a href="tel:+919866015048" style="color: white;">9491858048</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="Foot">
+            <div class="footerbar">
+                <div class="Home"><a href="../index.html">Home</a></div>
+                <div class="About"><a href="./About.html">About</a></div>
+                <div class="Contact"><a href="../HTML/Contact.html">Contact</a></div>
+                <div class="signUp"><a href="../HTML/signup.html">SignUp</a></div>
+                <div class="login"><a href="../HTML/login.html">Login</a></div>
+            </div>
+            <div class="copyrights">© Lowhithya</div>
+        </div>
+    </footer>
 </body>
 </html>

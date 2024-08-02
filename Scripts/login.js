@@ -1,3 +1,4 @@
+// Function to check user credentials from LocalStorage and save them in Session Storage!
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 

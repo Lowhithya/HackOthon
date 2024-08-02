@@ -1,3 +1,4 @@
+// Function to check wether user credentials are correct 
 window.addEventListener('load', function() {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     const user = JSON.parse(sessionStorage.getItem('user'));
@@ -20,7 +21,7 @@ window.addEventListener('load', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     
-
+// Function to toggle sideBar
         const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('main-content');
         const toggleSidebarButton = document.getElementById('toggleSidebar');
@@ -35,9 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
             sidebar.classList.add('hidden');
             mainContent.classList.add('expanded');
         });
-    
+    // Function to fetch news from API(Not working when deployed Since it is a free version!)
     async function fetchNews() {
-        const url = 'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=';
+        const url = 'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=';//Removed API key for security reasons
         try {
             const response = await fetch(url);
             if (!response.ok) {

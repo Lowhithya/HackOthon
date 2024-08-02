@@ -1,3 +1,4 @@
+// Function to get details from user and store them in local storage!
 document.getElementById('signupForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
